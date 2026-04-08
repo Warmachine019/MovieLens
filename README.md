@@ -1,6 +1,6 @@
 # 🎬 MovieLens: NLP-Powered Movie Recommender
 
-CinemaMatch is a content-based recommendation system that uses Natural Language Processing (NLP) to suggest movies. By analyzing titles and genres from the MovieLens dataset, the engine identifies mathematical similarities between films to provide relevant suggestions.
+MovieLens is a content-based recommendation system that uses Natural Language Processing (NLP) to suggest movies. By analyzing titles and genres from the MovieLens dataset, the engine identifies mathematical similarities between films to provide relevant suggestions.
 
 ---
 
