@@ -1,28 +1,149 @@
-# MovieLens
-A genre based movie recommender system.
+# 🎬 Genre-Based Movie Recommender System
 
-The system uses the MovieLens dataset from kaggle.
+A simple NLP-based movie recommendation system built using the **MovieLens dataset**.
+This project uses text analysis techniques like **TF-IDF** and **cosine similarity** to recommend movies based on user-generated tags.
 
-📖 How it Works
-Data Merging: Since tags.csv has multiple rows per movie, we use groupby to concatenate all tags for a single movieId into one string.
+---
 
-Preprocessing: We strip out years (like "(1995)"), punctuation, and common words (the, is, at) that don't help in distinguishing one movie from another.
+## 📌 Overview
 
-TF-IDF Vectorization:
+This system analyzes movie tags and suggests similar movies based on textual similarity.
+It demonstrates core Natural Language Processing (NLP) concepts in a simple and practical way.
 
-TF (Term Frequency): How often a word appears in a movie's tags.
+---
 
-IDF (Inverse Document Frequency): Reduces the weight of words that appear in every movie (like "film" or "story"), making unique tags more important.
+## ⚙️ How It Works
 
-Bigrams: By setting ngram_range=(1, 2), the model understands "science fiction" as a single unit rather than just "science" and "fiction" separately.
+### 🧩 Data Merging
 
-Cosine Similarity: This calculates the "angle" between two movie vectors. If the vectors point in a similar direction, the movies share similar descriptive keywords.
+* The `tags.csv` file contains multiple rows per movie.
+* We use **groupby** to combine all tags for each `movieId` into a single string.
 
-🚀 Running the Project
-Place movies.csv and tags.csv in the data/ folder.
+---
 
-Run the script:
+### 🧹 Text Preprocessing
 
-Bash
+* Remove years from titles (e.g., `(1995)`)
+* Convert text to lowercase
+* Remove punctuation
+* Remove stopwords (e.g., *the, is, at*)
+
+---
+
+### 📊 TF-IDF Vectorization
+
+* **TF (Term Frequency):** Measures how often a word appears in a movie's tags
+* **IDF (Inverse Document Frequency):** Reduces importance of common words
+
+👉 This helps highlight meaningful and unique words.
+
+---
+
+### 🔗 Bigrams
+
+* Using `ngram_range=(1,2)`
+* Captures phrases like:
+
+  * "science fiction"
+  * "romantic comedy"
+
+---
+
+### 📐 Cosine Similarity
+
+* Measures similarity between movies based on tag vectors
+* Movies with similar tags → higher similarity score
+
+---
+
+## 🚀 Running the Project
+
+### 📁 Step 1: Setup
+
+Place the dataset files inside a `data/` folder:
+
+* `movies.csv`
+* `tags.csv`
+
+---
+
+### ▶️ Step 2: Run the Script
+
+```bash
 python main.py
-Type a movie name (e.g., "Toy Story" or "Inception") when prompted.
+```
+
+---
+
+### 🎯 Step 3: Input Movie Name
+
+Example:
+
+```
+Enter a movie name: Toy Story
+```
+
+---
+
+### ✅ Output Example
+
+```
+Top 5 Recommended Movies:
+1. Finding Nemo
+2. Monsters Inc
+3. Toy Story 2
+4. Cars
+5. Shrek
+```
+
+---
+
+## 📦 Requirements
+
+Install required libraries:
+
+```bash
+pip install pandas scikit-learn nltk
+```
+
+---
+
+## 📁 Project Structure
+
+```
+movie-recommender/
+│── data/
+│   ├── movies.csv
+│   ├── tags.csv
+│
+│── src/
+│   ├── preprocess.py
+│   ├── recommender.py
+│
+│── main.py
+│── README.md
+```
+
+---
+
+## 🧠 NLP Concepts Used
+
+* Tokenization
+* Stopword Removal
+* TF-IDF Vectorization
+* N-grams (Bigrams)
+* Cosine Similarity
+
+---
+
+## 💡 Future Improvements
+
+* Add Word2Vec or embeddings
+* Build a web interface (Streamlit)
+* Improve recommendation accuracy using hybrid models
+
+---
+
+## 👨‍💻 Author
+
+Spandan Sahai
